@@ -1,0 +1,100 @@
+<!-- Include the common header and navigation here -->
+<%- include('header') %>
+
+<!-- Your profile specific content goes here -->
+<div class="container">
+  <h2>Your Profile</h2>
+  <p><strong>Username:</strong> <%= user.username %></p>
+  <p><strong>Email:</strong> <%= user.email %></p>
+  <!-- Display more profile information if needed -->
+  <!-- Profile Picture Upload Form -->
+<form action="/profile/upload-picture" method="POST" enctype="multipart/form-data">
+  <input type="file" name="profilePicture" accept="image/*" required>
+  <button type="submit">Upload Profile Picture</button>
+</form>
+
+<!-- Contact Information Update Form -->
+<form action="/profile/update-contact" method="POST">
+  <label for="email">Email:</label>
+  <input type="email" name="email" id="email" value="<%= user.email %>" required>
+  
+  <label for="phoneNumber">Phone Number:</label>
+  <input type="tel" name="phoneNumber" id="phoneNumber" value="<%= user.phone_number %>" required>
+
+  <button type="submit">Update Contact Information</button>
+</form>
+
+</div>
+
+<style>
+
+   /* Style for Profile Picture Upload Form */
+   form[action="/profile/upload-picture"] {
+    margin-bottom: 20px;
+  }
+
+  input[type="file"] {
+    display: none; /* Hide the file input */
+  }
+
+  label[for="profilePicture"] {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  /* Style for Contact Information Update Form */
+  form[action="/profile/update-contact"] {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  input[type="email"],
+  input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  button[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  /* Additional styling for the profile page */
+  .container {
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    background-color: #fff;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+</style>
+

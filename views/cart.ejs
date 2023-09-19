@@ -1,0 +1,110 @@
+<%- include('header') %>
+
+<div class="container">
+  <h2>Your Cart</h2>
+  <table class="cart-table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (session.cart && session.cart.length > 0) { %>
+        <% session.cart.forEach(item => { %>
+          <tr>
+            <td><img src="<%= item.image %>" alt="<%= item.name %>" class="item-image" /></td>
+            <td><%= item.name %></td>
+            <td>₵ <%= item.price %></td>
+            <td>1</td> <!-- Placeholder for quantity -->
+            <td>₵ <%= item.price %></td> <!-- Placeholder for subtotal -->
+            <td><a href="/remove_from_cart/<%= item.name %>" class="remove-link">Remove</a></td>
+          </tr>
+        <% }); %>
+        <!-- Total row -->
+        <tr>
+          <td colspan="4" class="total-label">Total:</td>
+          <td colspan="2" class="total-price">₵ <%= calculateTotalPrice(session.cart) %></td>
+        </tr>
+      <% } else { %>
+        <tr>
+          <td colspan="6" class="empty-cart">Your cart is empty.</td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+  <div class="checkout-button">
+    <a href="/checkout" class="checkout-link">Proceed to Checkout</a>
+  </div>
+</div>
+
+<style>
+  /* Styles for cart table */
+  .cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+  }
+
+  /* Improve container styling */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+  .cart-table th,
+  .cart-table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+
+  .item-image {
+    max-width: 50px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.empty-cart {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+    padding: 20px;
+}
+
+.checkout-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.checkout-link {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-link:hover {
+    background-color: #0056b3;
+}
+
+/* Style the total price separately */
+.total-price {
+    font-weight: bold;
+}
+
+/* Add styles for subtotal cells */
+.subtotal {
+    font-weight: bold;
+    color: #333;
+  }
+</style>
+
+

@@ -1,0 +1,17 @@
+<!-- views/admin/products.ejs -->
+<%- include('admin/header') %>
+
+<div class="products">
+  <h1>Manage Products</h1>
+  <!-- Display the list of products with edit and delete buttons -->
+  <% products.forEach(product => { %>
+    <div class="product">
+      <h3><%= product.name %></h3>
+      <p>Price: <%= product.price %></p>
+      <a href="/admin/products/<%= product.id %>/edit">Edit</a>
+      <a href="/admin/products/<%= product.id %>/delete">Delete</a>
+    </div>
+  <% }); %>
+</div>
+
+<%- include('admin/footer') %>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Call Doctor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      display: inline-block;
+      margin-right: 20px;
+    }
+
+    nav li:last-child {
+      margin-right: 0;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #0056b3;
+    }
+
+    .call_doctor_section {
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .call_doctor_content {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .doctor_card {
+      max-width: 300px;
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .doctor_card img {
+      max-width: 100%;
+      border-radius: 50%;
+    }
+
+    .doctor_card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .doctor_card p {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <!-- Include the common header and navigation here -->
+<%- include('header') %>
+    <nav>
+      <!-- Your navigation menu goes here -->
+      
+    </nav>
+  </header>
+
+  <!-- Content for Call Doctor Page -->
+  <section class="call_doctor_section layout_padding">
+    <div class="container">
+      <h2 class="text-uppercase">
+        Call Doctor
+      </h2>
+      <p>
+        If you need medical assistance or have any health-related concerns, you can call our doctors.
+      </p>
+      <div class="call_doctor_content">
+        <div class="doctor_card">
+          <img src="images/client.png" alt="Doctor 1">
+          <h3>Dr. Joe</h3>
+          <p>Specialty: Cardiology</p>
+          <p>Contact: +233 0508508482</p>
+        </div>
+        <div class="doctor_card">
+          <img src="images/client.png" alt="Doctor 2">
+          <h3>Dr. Janet </h3>
+          <p>Specialty: Pediatrics</p>
+          <p>Contact: +233 0508508482</p>
+        </div>
+        <div class="doctor_card">
+          <img src="images/client.png" alt="Doctor 3">
+          <h3>Dr. Kingford</h3>
+          <p>Specialty: Internal Medicine</p>
+          <p>Contact: +233 0508508482</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+  <%- include('footer') %>
+</body>
+
+</html>

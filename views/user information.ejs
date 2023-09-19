@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Replace with the path to your CSS file -->
+</head>
+<body>
+    <header>
+        <h1>Welcome, <%= user.username %>!</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Personal Information</h2>
+            <p><strong>Username:</strong> <%= user.username %></p>
+            <p><strong>Email:</strong> <%= user.email %></p>
+            <!-- Add more user information here if needed -->
+        </section>
+        <section>
+            <h2>Your Orders</h2>
+            <!-- Display a list of user orders here if available -->
+            <% if (user.orders && user.orders.length > 0) { %>
+                <ul>
+                    <% user.orders.forEach(order => { %>
+                        <li><%= order.orderID %> - <%= order.totalAmount %></li>
+                    <% }); %>
+                </ul>
+            <% } else { %>
+                <p>No orders found.</p>
+            <% } %>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Your Company</p>
+    </footer>
+</body>
+</html>

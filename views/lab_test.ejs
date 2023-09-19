@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      display: inline-block;
+      margin-right: 20px;
+    }
+
+    nav li:last-child {
+      margin-right: 0;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #0056b3;
+    }
+
+    .lab_test_section {
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .lab_test_title {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .lab_test_description {
+      font-size: 16px;
+    }
+
+    .lab_tests {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .lab_test {
+      max-width: 300px;
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .lab_test img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <!-- Include the common header and navigation here -->
+<%- include('header') %>
+    <nav>
+      <!-- Your navigation menu goes here -->
+     
+    </nav>
+  </header>
+
+  <!-- Content for Lab Test Page -->
+  <section class="lab_test_section layout_padding">
+    <div class="container">
+      <h2 class="text-uppercase">
+        Lab Test
+      </h2>
+      <p>
+        Get your lab tests done with us and receive accurate results.
+      </p>
+      <div class="lab_tests">
+        <div class="lab_test">
+          <img src="https://via.placeholder.com/200" alt="Blood Test">
+          <h3 class="lab_test_title">Blood Test</h3>
+          <p class="lab_test_description">
+            Our state-of-the-art laboratory offers comprehensive blood tests to check for various health conditions and provide detailed insights into your overall health.
+          </p>
+        </div>
+        <div class="lab_test">
+          <img src="https://via.placeholder.com/200" alt="Urine Analysis">
+          <h3 class="lab_test_title">Urine Analysis</h3>
+          <p class="lab_test_description">
+            Our experts perform urine analysis to detect abnormalities, infections, and other health issues to ensure early diagnosis and timely treatment.
+          </p>
+        </div>
+        <div class="lab_test">
+          <img src="https://via.placeholder.com/200" alt="X-Ray">
+          <h3 class="lab_test_title">X-Ray</h3>
+          <p class="lab_test_description">
+            We offer X-ray services to help diagnose and monitor bone fractures, lung conditions, and other internal health problems accurately.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Include the common footer here, if applicable -->
+</body>
+<%- include('footer') %>
+</html>

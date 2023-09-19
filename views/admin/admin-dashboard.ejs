@@ -1,0 +1,59 @@
+<!-- views/admin/dashboard.ejs -->
+<%- include('admin/header') %>
+<%- include('nav') %>
+<div class="dashboard">
+  <h1>Welcome, <%= adminUser.username %>!</h1>
+  <p>This is your admin dashboard.</p>
+</div>
+
+<%- include('admin/footer') %>
+<style>
+    .admin-nav {
+  background-color: #333;
+  color: #fff;
+}
+
+.admin-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admin-nav li {
+  padding: 10px;
+}
+
+.admin-nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.admin-nav a:hover {
+  text-decoration: underline;
+}
+
+</style>
+
+  
+  <!-- Product Management Section -->
+  <section class="product-management">
+    <h2>Manage Products</h2>
+    <a href="/admin/create-product">Create New Product</a>
+    <!-- List of products with options to edit or delete -->
+  </section>
+
+  <!-- Order Management Section -->
+  <section class="order-management">
+    <h2>View Orders</h2>
+    <!-- List of orders with details and processing options -->
+  </section>
+
+  <!-- User Management Section -->
+  <section class="user-management">
+    <h2>Manage Users</h2>
+    <!-- List of users with options to edit or delete -->
+  </section>
+</div>
+</body>
+</html>
+

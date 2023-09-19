@@ -1,0 +1,81 @@
+<!-- Include the common header and navigation here -->
+<%- include('header') %>
+
+<!-- Styles for the item details section -->
+<style>
+  .item-details-section {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .item-details-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .item-details-image img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  .item-details-content {
+    margin-left: 20px;
+  }
+
+  .item-details-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .item-details-content p {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+
+  .price {
+    color: #e74c3c; /* Red color for price */
+  }
+
+  .buy-now-btn {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+</style>
+
+<!-- Item details section -->
+<section class="item-details-section layout-padding">
+  <div class="container">
+    <div class="item-details-container">
+      <div class="item-details-image">
+        <img src="<%= itemDetails.image_url %>" alt="<%= itemDetails.name %>" />
+      </div>
+      <div class="item-details-content">
+        <h2><%= itemDetails.name %></h2>
+        <p class="price">Price: ₵<%= itemDetails.price %></p>
+        <p class="stock">In Stock: <%= itemDetails.stock %> units</p>
+        <p class="description"><%= itemDetails.description %></p>
+        
+        <!-- Form to add item to cart -->
+        <form action="/add_to_cart" method="POST">
+          <input type="hidden" name="image" value="<%= itemDetails.image_url %>" />
+          <input type="hidden" name="name" value="<%= itemDetails.name %>" />
+          <input type="hidden" name="price" value="<%= itemDetails.price %>" />
+          <input type="hidden" name="product_id" value="<%= itemDetails.id %>" />
+          <button type="submit" class="buy-now-btn">Add to Cart</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Include your footer content here -->
+<%- include('footer') %>

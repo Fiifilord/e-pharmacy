@@ -1,0 +1,72 @@
+ <div class="hero_area">
+    <!-- Header section starts -->
+    <header class="header_section">
+        <div class="container">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+                    <a class="navbar-brand" href="/index">
+                        <img src="images/logo.png" alt="E pharmacy">
+                        <span>E pharmacy</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="d-flex flex-column flex-lg-row align-items-center w-100 justify-content-between">
+                            <nav class="navbar">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item"><a href="/" class="nav-link active">Home</a></li>
+                                    <% if (!session || !session.username) { %>
+                                        <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+                                        <li class="nav-item"><a href="/register" class="nav-link">Register</a></li>
+                                    <% } else { %>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-user"></i> My Account
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="userDropdown">
+                                                <a class="dropdown-item" href="/your_orders">My Orders</a>
+                                                <a class="dropdown-item" href="/profile">Profile</a>
+                                                <a class="dropdown-item" href="/logout">Logout</a>
+                                            </div>
+                                        </li>
+                                    <% } %>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-cogs"></i> Services
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="servicesDropdown">
+                                            <a class="dropdown-item" href="/call_doctor">Call Doctor</a>
+                                            <a class="dropdown-item" href="/lab_test">Lab Test</a>
+                                            <a class="dropdown-item" href="/online_buy">Online Buy</a>
+                                            <a class="dropdown-item" href="/medicine">Medicine</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link" href="/contact"><i class="fas fa-phone"></i> Contact us</a></li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/cart">
+                                            <i class="fas fa-shopping-cart"></i>
+                                            <span id="cart-count" class="cart-count">0</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <form class="form-inline">
+                                <input type="search" placeholder="Search">
+                                <button class="btn my-2 my-sm-0 nav_search-btn" type="submit"><i class="fas fa-search"></i></button>
+                                <% if (session && session.username) { %>
+                                    <a href="/logout" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                                <% } %>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+
+          

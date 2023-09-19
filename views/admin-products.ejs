@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Products</title>
+    <!-- Include any necessary CSS stylesheets here -->
+</head>
+<body>
+    <h1>Admin Products</h1>
+    
+    <!-- Add a button to create a new product -->
+    <a href="/admin/create-product">Create New Product</a>
+    
+    <!-- Display a table of products -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <!-- Add more table headers for other product attributes as needed -->
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% products.forEach(product => { %>
+                <tr>
+                    <td><%= product.id %></td>
+                    <td><%= product.name %></td>
+                    <td><%= product.description %></td>
+                    <td>$<%= product.price.toFixed(2) %></td>
+                    <!-- Add more table cells for other product attributes as needed -->
+                    <td>
+                        <!-- Add buttons or links for editing and deleting products -->
+                        <a href="/admin/edit-product/<%= product.id %>">Edit</a>
+                        <a href="/admin/delete-product/<%= product.id %>">Delete</a>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    
+    <!-- Include any necessary JavaScript scripts here -->
+</body>
+</html>

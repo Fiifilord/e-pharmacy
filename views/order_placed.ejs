@@ -1,0 +1,51 @@
+<!-- Include the common header and navigation here -->
+<%- include('header') %>
+
+<!-- Order placed confirmation content goes here -->
+<section class="order_placed_section layout_padding">
+  <div class="container">
+    <h2 class="text-uppercase">Order Placed</h2>
+    <p class="order_confirmation_message">Your order with ID: <%= orderId %> has been placed successfully. Thank you for your purchase.</p>
+    <div class="home_btn">
+      <a href="/">Back to Home</a>
+    </div>
+        <!-- You can display more order details here if you like -->
+        <!-- For example, you can display the items, total amount, and other relevant details -->
+  </div>
+</section>
+
+<!-- Include the common footer here, if applicable -->
+<%- include('footer') %>
+
+<!-- Add CSS styles for order_placed.ejs -->
+<style>
+  .order_placed_section {
+    padding: 50px 0;
+  }
+
+  .order_confirmation_message {
+    text-align: center;
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 30px;
+  }
+
+  .home_btn {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .home_btn a {
+    display: inline-block;
+    background-color: #f33f3f;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .home_btn a:hover {
+    background-color: #d22f2f;
+  }
+</style>

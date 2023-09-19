@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Orders</title>
+    <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+  
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700|Roboto:400,700&display=swap" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet" />
+  <link href="/css/responsive.css" rel="stylesheet" />
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/css/animsition.min.css" rel="stylesheet">
+  <link href="/css/animate.css" rel="stylesheet">
+    
+    <!-- Include your stylesheet here -->
+    
+</head>
+<style>
+   /* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: 'Your Preferred Font', sans-serif; /* Replace with your font choice */
+    background-color: #f2f2f2; /* Replace with your background color */
+    color: #333; /* Replace with your default text color */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header styles */
+header {
+    background-color: #333; /* Replace with your header background color */
+    color: #fff; /* Replace with your header text color */
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Page title styles */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333; /* Replace with your title text color */
+    font-size: 36px; /* Increase font size for a strong visual impact */
+}
+
+/* Order list styles */
+ul.order-list {
+    list-style: none;
+    padding: 0;
+}
+
+/* Order item styles */
+li.order-item {
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff; /* Replace with your order item background color */
+    transition: transform 0.2s; /* Add a subtle hover effect */
+}
+
+li.order-item:hover {
+    transform: scale(1.02); /* Enlarge the item on hover */
+}
+
+/* No orders message styles */
+li.no-orders {
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff; /* Replace with your no orders message background color */
+    text-align: center;
+    color: #777; /* Replace with your no orders message text color */
+    font-style: italic;
+}
+
+/* Order detail styles */
+.order-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px; /* Increase font size for readability */
+}
+
+.order-info span {
+    margin-bottom: 10px;
+}
+
+/* Highlighted text styles */
+.order-id {
+    color: #e17055; /* Replace with your highlighted text color */
+    font-weight: bold;
+}
+
+.status {
+    color: #45aaf2; /* Replace with your status text color */
+}
+
+.total-price {
+    color: #2ecc71; /* Replace with your total price text color */
+    font-weight: bold;
+}
+
+.created-at,
+.updated-at {
+    color: #7f8c8d; /* Replace with your timestamp text color */
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    li.order-item, li.no-orders {
+        padding: 15px;
+    }
+    h1 {
+        font-size: 28px; /* Adjust font size for smaller screens */
+    }
+    .order-info span {
+        font-size: 16px; /* Adjust font size for smaller screens */
+    }
+}
+
+</style>
+<body>
+    <!-- Include the common header and navigation here -->
+    <%- include('header') %>
+
+    <div class="container">
+        <h1>Your Orders</h1>
+        <ul>
+            <% if (orders.length === 0) { %>
+                <li class="no-orders">
+                    <p>No orders found.</p>
+                </li>
+            <% } else { %>
+                <% orders.forEach(order => { %>
+                    <li class="order-item">
+                        <strong>Order ID:</strong> <span class="order-id"><%= order.id %></span><br>
+                        <strong>Status:</strong> <span class="status"><%= order.status %></span><br>
+                        <strong>Total Price:</strong> <span class="total-price">₵<%= order.total_price.toFixed(2) %></span><br>
+                        <strong>Created At:</strong> <span class="created-at"><%= order.created_at %></span><br>
+                        <strong>Updated At:</strong> <span class="updated-at"><%= order.updated_at %></span><br>
+                    </li>
+                <% }); %>
+            <% } %>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; text-align: center; padding: 20px;">
+
+    <h1 style="color: #333;">Email Verification</h1>
+    
+    <p style="font-size: 18px; color: #666;">Thank you for signing up! Please verify your email address by entering the verification code below:</p>
+
+    <form action="/verify" method="POST" style="margin: 20px auto; max-width: 300px; background-color: #fff; padding: 20px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);">
+        <label for="verificationCode" style="font-size: 16px; color: #333;">Verification Code:</label>
+        <input type="text" id="verificationCode" name="verificationCode" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 3px;">
+        <button type="submit" style="background-color: #007bff; color: #fff; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 3px;">Verify</button>
+    </form>
+
+    <p style="font-size: 16px; color: #666;">If you haven't received a verification code, you can <a href="/resend" style="color: #007bff; text-decoration: none;">resend it</a>.</p>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!-- views/admin/users.ejs -->
+<%- include('admin/header') %>
+
+<div class="users">
+  <h1>Manage Users</h1>
+  <!-- Display the list of users with edit and delete buttons -->
+  <% users.forEach(user => { %>
+    <div class="user">
+      <h3><%= user.username %></h3>
+      <p>Email: <%= user.email %></p>
+      <a href="/admin/users/<%= user.id %>/edit">Edit</a>
+      <a href="/admin/users/<%= user.id %>/delete">Delete</a>
+    </div>
+  <% }); %>
+</div>
+
+<%- include('admin/footer') %>

@@ -1,0 +1,18 @@
+<!-- views/admin/orders.ejs -->
+<%- include('admin/header') %>
+
+<div class="orders">
+  <h1>View and Process Orders</h1>
+  <!-- Display the list of orders with details and process buttons -->
+  <% orders.forEach(order => { %>
+    <div class="order">
+      <h3>Order ID: <%= order.id %></h3>
+      <p>Total Amount: <%= order.totalAmount %></p>
+      <p>Status: <%= order.status %></p>
+      <a href="/admin/orders/<%= order.id %>/view">View Details</a>
+      <a href="/admin/orders/<%= order.id %>/process">Process Order</a>
+    </div>
+  <% }); %>
+</div>
+
+<%- include('admin/footer') %>
